@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="mb-4">TradeMe Vehicle Query</legend>
+                <div class="row g-0 mb-4">
+                    <div class="col form-floating">
+                        {% if form.year.errors %}
+                            {{ form.year(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.year.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.year(type="text", class="form-control form-control-lg", id="floatingInput", placeholder="year") }}
+                        {% endif %}
+                        {{ form.year.label(class="form-control-label", for="floatingInput") }}
+                    </div>
+                    <div class="col form-floating">
+                        {% if form.odometer.errors %}
+                            {{ form.odometer(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.odometer.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.odometer(type="text", class="form-control form-control-lg", id="floatingInput", placeholder="kms") }}
+                        {% endif %}
+                        {{ form.odometer.label(class="form-control-label", for="floatingInput") }}
+                    </div>
+                    <div class="col form-floating mb-2">
+                        {% if form.price.errors %}
+                            {{ form.price(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.price.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.price(type="text", class="form-control form-control-lg", id="floatingInput", placeholder="price") }}
+                        {% endif %}
+                        {{ form.price.label(class="form-control-label", for="floatingInput") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

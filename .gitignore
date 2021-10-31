@@ -1,0 +1,6 @@
+.vscode
+tmbot_vir
+__pycache__
+resources
+data
+app/site.db
